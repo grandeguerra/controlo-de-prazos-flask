@@ -8,15 +8,19 @@
 <body>
     <h1>Processos</h1>
     <a href="{{ url_for('novo_processo') }}">Novo Processo</a>
-    <ul>
-        {% for numero, p in processos.items() %}
-            <li>
-                <strong>{{ numero }}</strong> - {{ p.nome_cliente }} ({{ p.comarca }}) - {{ p.data_registo }}
-            </li>
-        {% else %}
-            <li>(Sem processos)</li>
-        {% endfor %}
-    </ul>
+    <form action="{{ url_for('ver_processo') }}" method="get">
+        <label for="numero_processo">Escolhe um processo:</label>
+        <select name="numero_processo" id="numero_processo">
+            {% for numero, p in processos.items() %}
+                <option value="{{ numero }}">
+                    {{ numero }} - {{ p.nome_cliente }} ({{ p.comarca }}) - {{ p.data_registo }}
+                </option>
+            {% else %}
+                <option disabled>(Sem processos)</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Ver Processo</button>
+    </form>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         <ul>
