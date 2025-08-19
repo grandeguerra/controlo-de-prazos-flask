@@ -1,0 +1,5 @@
+campo,valor
+twilio_account_sid,SEU_ACCOUNT_SID
+twilio_auth_token,SEU_AUTH_TOKEN
+twilio_whatsapp_number,"whatsapp:+14155238886"
+user_whatsapp_number,"whatsapp:+351912345678"
