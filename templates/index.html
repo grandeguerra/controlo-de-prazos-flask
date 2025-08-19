@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Controlo de Prazos Judicial</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Processos</h1>
+    <a href="{{ url_for('novo_processo') }}">Novo Processo</a>
+    <ul>
+        {% for numero, p in processos.items() %}
+            <li>
+                <strong>{{ numero }}</strong> - {{ p.nome_cliente }} ({{ p.comarca }}) - {{ p.data_registo }}
+            </li>
+        {% else %}
+            <li>(Sem processos)</li>
+        {% endfor %}
+    </ul>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li style="color:red">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>

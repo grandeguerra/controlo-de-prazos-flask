@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Processo</title>
+</head>
+<body>
+    <h1>Novo Processo</h1>
+    <form method="post">
+        Número: <input type="text" name="numero" required><br>
+        Nome do Cliente: <input type="text" name="cliente" required><br>
+        Comarca: <input type="text" name="comarca" required><br>
+        Data de Registo: <input type="date" name="data_registo" required><br>
+        <button type="submit">Criar</button>
+    </form>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>
